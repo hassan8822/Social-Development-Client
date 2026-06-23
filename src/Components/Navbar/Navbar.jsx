@@ -3,6 +3,7 @@ import userIcon from "../../assets/user.png.png"
 import logo from "../../assets/logo.png.png"
 import { use } from "react";
 import { AuthContext } from "../../Povider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const {user, signOutuser} = use(AuthContext)
@@ -21,7 +22,11 @@ const Navbar = () => {
   const handleLogOut = () => {
     signOutuser()
     .then(() => {
-      alert("you logged out")
+     Swal.fire({
+  title: "Success!",
+  text: "Logged Out Successfully",
+  icon: "success"
+});
 
     })
     .catch(error => {
