@@ -1,6 +1,7 @@
 import { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Povider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password)
-    
+
     signIn(email, password)
     .then(result => {
       const user = result.user;
@@ -30,6 +31,7 @@ const Login = () => {
       .then((result) => {
       console.log(result.user);
       navigate("/");
+        Swal.fire("Login Successful", "Welcome back!", "success");
     })
     .catch((error) => {
       alert(error.message);
