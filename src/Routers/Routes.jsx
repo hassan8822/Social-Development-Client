@@ -4,10 +4,12 @@ import Home from "../Pages/Home/Home";
 import MainLayout from "../Layout/MainLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import CreateEvent from "../Pages/CreateEvent/CreateEvent";
+
 import JoinedEvent from "../Pages/JoinedEvent/JoinedEvent";
 import ManageEvent from "../Pages/ManageEvent/ManageEvent";
 import UpcomingEvents from "../Pages/UpcomingEvents/UpcomingEvents";
+import PrivateRoute from "../Povider/PrivateRoute";
+import CreateEvent from "../Pages/CreateEvent/CreateEvent";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +35,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/createevent",
-        Component: CreateEvent
+        element: <PrivateRoute>
+          <CreateEvent></CreateEvent>
+        </PrivateRoute>
+      
       },
       {
         path: "/joinedevent",

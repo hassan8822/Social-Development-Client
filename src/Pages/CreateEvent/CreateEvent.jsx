@@ -20,8 +20,8 @@ const CreateEvent = () => {
         const location  = e.target.location.value;
         const eventData = {
           title, description, eventType, thumbnail, location, eventDate,
-          email: user?.email,
-         createdBy: user?.email,
+         
+        createdBy: user?.email,
         };
 
         fetch("http://localhost:3000/events", {
@@ -106,7 +106,7 @@ const CreateEvent = () => {
             <button  className="btn btn-primary " type="submit" >
           Create Event
         </button>
-         <button  className="btn btn-soft" type="button"  onClick={() => navigate("/")} >
+         <button  className="btn btn-soft" type="button"  onClick={() => navigate(-1)} >
           Cancel
         </button>
 
