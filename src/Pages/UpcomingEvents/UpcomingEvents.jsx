@@ -81,7 +81,7 @@ const UpcomingEvents = () => {
       </p>
       <Link
         to={`/event/${event._id}`}
-        className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-colors whitespace-nowrap shadow-md"
+        className="btn border-2 font-semibold btn-outline btn-success text-white text-xs px-3 py-1.5 rounded-lg   whitespace-nowrap "
       >
         View Event
       </Link>

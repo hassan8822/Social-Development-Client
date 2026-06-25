@@ -10,6 +10,7 @@ import ManageEvent from "../Pages/ManageEvent/ManageEvent";
 import UpcomingEvents from "../Pages/UpcomingEvents/UpcomingEvents";
 import PrivateRoute from "../Povider/PrivateRoute";
 import CreateEvent from "../Pages/CreateEvent/CreateEvent";
+import EventDetails from "../Pages/EventDetails/EventDetails";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,14 @@ export const router = createBrowserRouter([
           <CreateEvent></CreateEvent>
         </PrivateRoute>
       
+      },
+      {
+        path: "/event/:id",
+        Component: EventDetails,
+        loader: ({params}) =>{
+         return fetch(`http://localhost:3000/events/${params.id}`)
+        }
+
       },
       {
         path: "/joinedevent",
