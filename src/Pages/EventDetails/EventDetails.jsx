@@ -19,11 +19,42 @@ const EventDetails = () => {
         return;
       }
 
-      Swal.fire({
+      const joinedEvent = {
+        eventId : event._id,
+        title: event.title,
+        thumbnail: event.thumbnail,
+        location: event.location,
+        eventType: event.eventType,
+       eventDate: event.eventDate,
+
+       userEmail: user.email,
+        userName: user.displayName,
+
+
+      };
+      fetch("http://localhost:3000/joinedevents",{
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(joinedEvent),
+    
+      })
+      .then((res) => res.json())
+      .then((data) => {
+       if(data.insertedId){
+         Swal.fire({
         icon: "success",
         title: "Successfully Joined!",
         text: "Thank you for joining this event.",
       });
+      navigate("/joinedevent");
+
+       }
+      });
+
+
+     
     };
 
     return (
