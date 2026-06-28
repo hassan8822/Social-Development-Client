@@ -57,7 +57,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/manageevent",
-        Component: ManageEvent
+        element: <PrivateRoute>
+          <ManageEvent></ManageEvent>
+        </PrivateRoute>
       }
     ]
   },

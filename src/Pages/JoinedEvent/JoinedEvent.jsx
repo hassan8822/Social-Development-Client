@@ -25,9 +25,9 @@ const JoinedEvent = () => {
   }, [user]);
 
  const filteredEvents = events.filter((event) =>
-  event.title.toLowerCase().includes(search.toLowerCase())
+  event.title.toLowerCase().includes(search.toLowerCase()));
 
-  , [events, search]);
+
 
   return (
     <div className="bg-gray-50 min-h-screen py-10">
