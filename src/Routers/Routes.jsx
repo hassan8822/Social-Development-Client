@@ -11,11 +11,14 @@ import UpcomingEvents from "../Pages/UpcomingEvents/UpcomingEvents";
 import PrivateRoute from "../Povider/PrivateRoute";
 import CreateEvent from "../Pages/CreateEvent/CreateEvent";
 import EventDetails from "../Pages/EventDetails/EventDetails";
+import UpdateEvents from "../Pages/UpdateEvents/UpdateEvents";
+import ErrorPage from "../Pages/Error404/Error404";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         index: true,
@@ -59,6 +62,14 @@ export const router = createBrowserRouter([
         path: "/manageevent",
         element: <PrivateRoute>
           <ManageEvent></ManageEvent>
+        </PrivateRoute>
+      },
+      {
+        path: "/updateevents/:id",
+        loader: ({ params }) =>
+       fetch(`http://localhost:3000/events/${params.id}`),
+        element: <PrivateRoute>
+          <UpdateEvents></UpdateEvents>
         </PrivateRoute>
       }
     ]

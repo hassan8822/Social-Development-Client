@@ -11,11 +11,20 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink  className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-bold"
+            : "hover:text-blue-600 transition-colors duration-300"
+        } to="/">Home</NavLink>
       </li>
 
       <li>
-        <NavLink to="/upcomingevents">Upcoming Events</NavLink>
+        <NavLink    
+        className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-bold"
+            : "hover:text-blue-600 transition-colors duration-300"
+        }  to="/upcomingevents">Upcoming Events</NavLink>
       </li>
     </>
   );
@@ -78,16 +87,29 @@ const Navbar = () => {
                 className="menu dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <Link to="/createevent">Create Event</Link>
+                  <NavLink  className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-bold"
+            : "hover:text-blue-600 transition-colors duration-300"
+        } to="/createevent">Create Event</NavLink>
                 </li>
 
                 <li>
-                  <Link to="/manageevent">Manage Event</Link>
+                  <NavLink  className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-bold"
+            : "hover:text-blue-600 transition-colors duration-300"
+        } to="/manageevent">Manage Event</NavLink>
                 </li>
 
                 <li>
-                  <Link to="/joinedevent">Joined Event</Link>
+                  <NavLink  className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-bold"
+            : "hover:text-blue-600 transition-colors duration-300"
+        } to="/joinedevent">Joined Event</NavLink>
                 </li>
+            
               </ul>
 
             </div>

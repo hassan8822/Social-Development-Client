@@ -104,12 +104,13 @@ const JoinedEvent = () => {
                   <p className="text-sm text-blue-600 font-semibold mb-5">
                     {event.eventType}
                   </p>
+                <Link to="/manageevent">
+           <button className="btn border-2 font-semibold btn-outline btn-success">
+             Manage My Events
+           </button>
+            </Link>
 
-                  <Link to="/upcomingevents">
-  <button className="btn btn-outline btn-success">
-    Explore More Events
-  </button>
-</Link>
+
                 </div>
               </div>
             ))}
