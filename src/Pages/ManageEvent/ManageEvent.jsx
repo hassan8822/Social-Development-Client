@@ -105,7 +105,7 @@ const ManageEvent = () => {
 
                         
 <button  onClick={() => handleDelete(event._id)}
-  class="flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-linear-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
+  className="flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-linear-to-r from-[#fb7185] via-[#e11d48] to-[#be123c] hover:shadow-xl hover:shadow-red-500 hover:scale-105 duration-300 hover:from-[#be123c] hover:to-[#fb7185]"
 >
   <svg viewBox="0 0 15 15" class="w-5 fill-white">
     <svg
@@ -133,13 +133,7 @@ const ManageEvent = () => {
 
 
 
-{/*                   
-                        <button
-                          onClick={() => handleDelete(event._id)}
-                          className="btn btn-sm btn-error"
-                        >
-                          Delete
-                        </button> */}
+
 
                       </td>
 

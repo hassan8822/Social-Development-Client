@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const Register = () => {
   const navigate = useNavigate();
 
-  const { createuser, setUser, googleSignIn} = use(AuthContext)
+  const { createuser, setUser, googleSignIn,  updateUserProfile} = use(AuthContext)
   const handleSignIn = (e) => {
     e.preventDefault();
 
@@ -25,12 +25,21 @@ const Register = () => {
     return;
   }
    createuser(email, password) 
-   .then(result => {
-    const user = result.user;
-    setUser(user);
-     Swal.fire("Registered!", "Account created successfully", "success");
+   .then(async(result) => {
+    await updateUserProfile({
+      displayName: name,
+      photoURL: photo
+    });
+    setUser({
+      ...result.user,
+        displayName: name,
+      photoURL: photo,
+    });
+     Swal.fire("Registered!", 
+      "Account created successfully", 
+      "success");
 
-    navigate("/login")
+    navigate("/")
    
    }) 
   .catch((error) => {
@@ -47,10 +56,18 @@ const Register = () => {
       .then((result) => {
       console.log(result.user);
       navigate("/login");
-        Swal.fire("Login Successful", "Welcome back!", "success");
+       Swal.fire(
+  "Success!",
+  "Google Sign In Successful",
+  "success"
+);
     })
     .catch((error) => {
-      alert(error.message);
+    Swal.fire({
+ icon:"error",
+ title:"Password Error",
+ text: error.message,
+})
     });
   }
     return (

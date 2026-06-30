@@ -1,8 +1,15 @@
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdateEvents = () => {
   const event = useLoaderData();
+
+  const [eventDate, setEventDate] = useState(
+  event.eventDate ? new Date(event.eventDate) : new Date()
+);
 
 
   const handleUpdate = (e) => {
@@ -14,7 +21,7 @@ const UpdateEvents = () => {
       thumbnail: form.thumbnail.value,
       title: form.title.value,
       eventType: form.eventType.value,
-      eventDate: form.eventDate.value,
+      eventDate: eventDate.toISOString,
       location: form.location.value,
       description: form.description.value,
     };
@@ -77,12 +84,19 @@ const UpdateEvents = () => {
           <option>Social Service</option>
         </select>
 
-        <input
-          type="date"
-          name="eventDate"
-          defaultValue={event.eventDate?.slice(0, 10)}
-          className="input input-bordered w-full"
-        />
+       
+
+         <div>
+                              
+         <label className="font-semibold block mb-2">Event Date </label>
+            <DatePicker className="input input-bordered w-full"
+             selected={eventDate} 
+             onChange={(date) => {
+              setEventDate(date);
+              }} minDate={new Date()}
+                 >     
+               </DatePicker>
+              </div>
 
         <input
           type="text"
